@@ -1,13 +1,13 @@
-#include <stdhio.h>
+#include <stdio.h>
 #include <stdlib.h>
 
-void swap_int(int* integer1, int* integer2){
-    int temp = integer1;
-	
 
-
-
+void swap(int *x, int *y){
+    int temp = *x;
+    *x = *y;
+    *y = temp;
 }
+
 
 
 void main(){
