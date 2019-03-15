@@ -19,8 +19,8 @@ int main(int argsc, char **argv) {
     int pop = 0;
     int ret = 0;
 
-    int num_instruction = 0;
-    int num_cycles = 0;
+    double num_instruction = 0;
+    double num_cycles = 0;
     char *addset[] = {"add", "addq", "addb", "addl"};
     while (!(feof(myFile))) {
         char buffer[max];
