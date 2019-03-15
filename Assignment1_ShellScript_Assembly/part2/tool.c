@@ -74,7 +74,7 @@ int main(int argsc, char **argv) {
     printf("POP %d\n", pop);
     printf("RET %d\n", ret);
 
-    printf("CYCLE COUNT:  %d\n", num_cycles);
+    printf("CYCLE COUNT: %d\n", num_cycles);
 
 
 
