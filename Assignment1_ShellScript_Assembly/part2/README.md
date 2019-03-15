@@ -90,13 +90,16 @@ It has been compiled with debugging symbols(*-g*) so you may investigate and vie
 
 In a brief sentence or two.
 
-1. What was the bug?
-2. What line did the bug occur?
-3. What is the fix for the bug?
+1. The bug is a segmentation fault.
+2. What line did the bug occur? Line 10.
+3. What is the fix for the bug? You have to malloc space for thing you moved.
+initialize variable
 
 ## Aside: Core dump
 
 In the Greg Law video, he begins to investigate a Core dump file. What exactly is a coredump?
+
+Coredump is the memory state of the program at time of crash.
 
 Read here: https://wiki.archlinux.org/index.php/Core_dump
 
