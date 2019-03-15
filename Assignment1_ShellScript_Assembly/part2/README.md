@@ -91,8 +91,8 @@ It has been compiled with debugging symbols(*-g*) so you may investigate and vie
 In a brief sentence or two.
 
 1. The bug is a segmentation fault.
-2. What line did the bug occur?
-3. What is the fix for the bug?
+2. What line did the bug occur? Line 10.
+3. What is the fix for the bug? You have to malloc space for thing you moved.
 
 ## Aside: Core dump
 
