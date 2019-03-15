@@ -64,15 +64,15 @@ int main(int argsc, char **argv) {
             num_cycles += 1;
         }
     }
-    printf("MUL%d", mul);
-    printf("MOV%d", mov);
-    printf("SUB%d", sub);
-    printf("ADD%d", add);
-    printf("DIV%d", div);
-    printf("LEA%d", lea);
-    printf("PUSH%d", push);
-    printf("POP%d", pop);
-    printf("RET%d", ret);
+    printf("MUL%d\n", mul);
+    printf("MOV%d\n", mov);
+    printf("SUB%d\n", sub);
+    printf("ADD%d\n", add);
+    printf("DIV%d\n", div);
+    printf("LEA%d\n", lea);
+    printf("PUSH%d\n", push);
+    printf("POP%d\n", pop);
+    printf("RET%d\n", ret);
 
 
 
