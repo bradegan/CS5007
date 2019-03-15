@@ -17,8 +17,14 @@ int main(int argsc, char** argv) {
             mov++;
             num_instruction++;
             num_cycles += 1;
-            printf("MOV%d",mov);
         }
+        printf("MOV%d",mov);
+        if (strstr(buffer, "add")){
+            mov++;
+            num_instruction++;
+            num_cycles += 1;
+        }
+        
         //
 
 
