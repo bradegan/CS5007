@@ -99,6 +99,8 @@ initialize variable
 
 In the Greg Law video, he begins to investigate a Core dump file. What exactly is a coredump?
 
+Coredump is the memory state of the program at time of crash.
+
 Read here: https://wiki.archlinux.org/index.php/Core_dump
 
 # Part 2 - Assembly - A first program
