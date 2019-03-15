@@ -90,7 +90,7 @@ It has been compiled with debugging symbols(*-g*) so you may investigate and vie
 
 In a brief sentence or two.
 
-1. What was the bug?
+1. The bug is a segmentation fault.
 2. What line did the bug occur?
 3. What is the fix for the bug?
 
