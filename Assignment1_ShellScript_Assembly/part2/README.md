@@ -92,8 +92,8 @@ In a brief sentence or two.
 
 1. The bug is a segmentation fault.
 2. What line did the bug occur? Line 10.
-3. What is the fix for the bug? You have to malloc space for thing you moved.
-initialize variable
+3. What is the fix for the bug? You have to malloc space for thing you moved before initialize variable.
+Or youre pointing to the wrong memory location.
 
 ## Aside: Core dump
 
@@ -193,11 +193,9 @@ Total Cycles = ???
 Our Cycle Count Tool is what we call a 'static analysis'. That is, it uncovers information about our programs before it is running (during compile-time). Given that our tool uncovers information before the program, what is (at least) one pro of this, and one con you can think of?
 
 Pro:
-1. *TODO: EDIT README WITH YOUR ANSWER HERE*
-
+1. 
 Con:
-1. *TODO: EDIT README WITH YOUR ANSWER HERE*
-
+1. time consuming, does not support all languages, produces false positives, very labor intensive to create static tests, tests may not be completely through, does not find issues in runtime enviornment.
 ## Dyanmic Analysis
 
 The opposite of a static analysis is a dynamic analysis. Dynamic analysis tools record and return information about programs that are in the process or have finished executing. An example of a dynamic analysis tool is [valgrind](http://valgrind.org/). What do you think a pro and con of dynamic analysis would be?
