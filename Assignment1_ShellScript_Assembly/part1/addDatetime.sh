@@ -6,8 +6,10 @@
 # You might start out by first saying the purpose of the script and
 # demonstrating its usage.
 
+# Can be shared with proper attribution to owner.
 
 ##Bradford Egan
+## egan.b@husky.neu.edu
 ##Spring 2019
 ##Systems
 ##Mike Shaw
