@@ -3,11 +3,10 @@
 
 # Can be shared with proper attribution to owner.
 
-##Bradford Egan
+## Bradford Egan
 ## egan.b@husky.neu.edu
-##Spring 2019
-##Systems
-##Mike Shaw
+## Spring 2019
+## Systems -  Mike Shaw
 
 
 ## Specific Usage:  sh addDatetime.sh gdax-BTCUSD-1h
