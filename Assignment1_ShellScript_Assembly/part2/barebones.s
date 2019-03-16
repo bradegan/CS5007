@@ -17,24 +17,25 @@ main:
 
 					# (2) What is going on here
 					# Ans:
-	movq $1, %rax			# 
+	movq $1, %rax			# moving 1 into rax and 1 into 1 rdi and comparing them and print hello string
 	movq $1, %rdi			#
 	leaq .hello.str,%rsi		#
 
 
 					# (3) What is syscall? We did not talk about this
 					# in class.
-					# Ans:
+					# Ans: syscall is a library function that calls the system call whose assembly 
+					language interface corresponds with the specified arguments. 
 	syscall				# Which syscall is being run?
-					# Ans:
+					# Ans: runs whatever value is in rax 1 - system write
 
 					# (4) What would another option be instead of 
 					# using a syscall to achieve this?
-					# Ans:
+					# Ans: use echo
 
 	movq	$60, %rax		# (5) We are again setting up another syscall
 	movq	$0, %rdi		# What command is it?
-					# Ans:	
+					# Ans:	making a system exit call
 	syscall
 
 	popq %rbp			# (Note we do not really need
