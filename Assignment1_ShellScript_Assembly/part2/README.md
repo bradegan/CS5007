@@ -192,7 +192,9 @@ Total Cycles = ???
  
 Our Cycle Count Tool is what we call a 'static analysis'. That is, it uncovers information about our programs before it is running (during compile-time). Given that our tool uncovers information before the program, what is (at least) one pro of this, and one con you can think of?
 
+
 # SOURCE: https://gcn.com/articles/2009/02/09/static-vs-dynamic-code-analysis.aspx
+
 
 Pro:
 1. Can locate problems in code at specific location. Allows for quick fix fixes to code. Can be used with automated tools to scan entire codebase. Allows problems to be foind early in development cycle before code becomes too unwieldly and large. Allows us to find errors common to multiple operating systems.
