@@ -25,7 +25,8 @@ main:
 					# (3) What is syscall? We did not talk about this
 					# in class.
 					# Ans: syscall is a library function that calls the system call whose assembly 
-					language interface corresponds with the specified arguments. 
+					language interface corresponds with the specified arguments. Sys call is a way for 
+					a script to interact with the operating system.
 	syscall				# Which syscall is being run?
 					# Ans: runs whatever value is in rax 1 - system write
 
@@ -44,4 +45,4 @@ main:
 .hello.str:
 	.string "Hello World!\n"
 	.size	.hello.str,13		# (6) Why is there a 13 here?
-					# Ans:	
+					# Ans:	There are 13 characters that need to be printed.
