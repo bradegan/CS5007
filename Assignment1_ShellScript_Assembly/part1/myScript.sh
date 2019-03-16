@@ -11,9 +11,9 @@
 ##Mike
 
 
-## My script is intended to make a copy of given CSV file and normalize data by
-## column. Will loop through columns, find min and max of columns data, and use 
-## this to normalize all of repective columns data to between 0 and 1. Prepares
+## My script is intended to help me orgnize my CSV files of trading data.
+## I have a lot of CSVs coming into a /Data folder, hour by hour with a generic
+## name and I needed someway to organize them.  Prepares
 ## data for use on ML algorithms.
 ## USAGE: ./myScript.sh  "gdax-BCHBTC-1h"
 
@@ -30,6 +30,12 @@
 
 
 file="$1.csv"
+
+timestamp=$(awk 'NR==2{print $1; exit}' $1.csv);
+timestamp1=$( echo ${timestamp:0:13})
+#price = awk 'NR==2{print $2}' st="${1}" $1.csv;
+
+echo $timestamp1;
  
 #current_time=$(date "+%Y.%m.%d-%H.%M.%S")
 
@@ -37,13 +43,14 @@ file="$1.csv"
 
 
 #awk 'NR==2{print $2} ' Old_file > New_file
+#current_time=$("$timestamp1")
+
+##current_time=$(date "+%Y.%m.%d-%H.%M.%S")
+#echo "Time is: $current_time"
  
-current_time=$(date "+%Y.%m.%d-%H.%M.%S")
-echo "Time is: $current_time"
- 
-new_file=$1.$current_time
+new_file=$1.$timestamp1.csv
 echo "New FileName: " "$new_file"
  
-cp $file $new_file.csv
+cp $file $new_file
 #echo "Timestamp added to file."
 
