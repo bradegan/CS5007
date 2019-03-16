@@ -90,7 +90,7 @@ timestamp1=$( echo ${timestamp:0:13})
 
 echo "Timestamp is: $timestamp1";
  
-new_file=$1.$timestamp1.csv
+new_file=$1-$timestamp1.csv
 echo "New FileName: " "$new_file"
  
 cp $file $new_file
