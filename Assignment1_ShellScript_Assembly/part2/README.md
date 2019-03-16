@@ -192,20 +192,24 @@ Total Cycles = ???
  
 Our Cycle Count Tool is what we call a 'static analysis'. That is, it uncovers information about our programs before it is running (during compile-time). Given that our tool uncovers information before the program, what is (at least) one pro of this, and one con you can think of?
 
+# SOURCE: https://gcn.com/articles/2009/02/09/static-vs-dynamic-code-analysis.aspx
+
 Pro:
-1. 
+1. Can locate problems in code at specific location. Allows for quick fix fixes to code. Can be used with automated tools to scan entire codebase. Allows problems to be foind early in development cycle before code becomes too unwieldly and large. Allows us to find errors common to multiple operating systems.
 Con:
-1. time consuming, does not support all languages, produces false positives, very labor intensive to create static tests, tests may not be completely through, does not find issues in runtime enviornment.
+1. time consuming, does not support all languages, produces false positives, very labor intensive to create static tests, tests may not be completely through, does not find issues in runtime enviornment. Cannot locate problems that occur before program is copiled.
+
 ## Dyanmic Analysis
 
 The opposite of a static analysis is a dynamic analysis. Dynamic analysis tools record and return information about programs that are in the process or have finished executing. An example of a dynamic analysis tool is [valgrind](http://valgrind.org/). What do you think a pro and con of dynamic analysis would be?
 
 Pro:
-1. *TODO: EDIT README WITH YOUR ANSWER HERE*
+1. Allows for checking of errors that only occur when program is executing such as memory leak. Can scan applications where one does not
+have access to the source code. Can be used against any program. May find vulnerabilities missed in static code analysis.
 
 Con:
-1. *TODO: EDIT README WITH YOUR ANSWER HERE*
-
+1. Can cause overreliance on dynamic analysis and miss problems in code. May allow for false positives and negaties. Dynamic tools are
+as good as they are written. Cannot trace problem back to exact line number in code.
 
 # Rubric
 
