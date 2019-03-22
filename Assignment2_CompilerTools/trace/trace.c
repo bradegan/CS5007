@@ -2,8 +2,8 @@
 #include<time.h>
 
 int count = 0;
-clock_t start_time;
-clock_t stop_time;
+static clock_t start_time;
+static clock_t stop_time;
 double time_ellapsed = 0;
 
 
