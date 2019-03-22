@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-
+//Check out my Run Bash Script to compile / run faster.
 
 void msg(){
 	printf("Hello!\n");
