@@ -2,7 +2,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <signal.h> // This is new!
-#include <mem.h>
+#include <string.h>
 
 
 int BUFFER_SIZE = 80;
@@ -15,18 +15,18 @@ void sigint_handler(int sig){
 	exit(0);
 }
 
-int parse(int argc, char **argv)
+int parse(char* buf)
 {
-    if ((argv[1]) != NULL){
+    if ((buf) != NULL){
         char* pch;
-        char* str = argv[1];
-        pch = strtok (str," ,.-");
-        while (pch != NULL)
+        char* str = buf;
+        char* token = strtok (str," ,.-\t\n");
+        while (token != NULL)
         {
-            printf ("%s\n",pch);
-            pch = strtok(NULL, " ,.-");
+            printf ("%s\n",token);
+            token = strtok(NULL, " ,.-\t\n");
         }
-        return 0;}
+        return token;}
 }
 
 int main(int argc, char **argv){
@@ -42,13 +42,21 @@ int main(int argc, char **argv){
 
         fgets(buf, BUFFER_SIZE, stdin);
         printf("Buffer is: %s",buf);
+	
 
 
 
-        parse(argc, **argv);
+        parse(buf);
 	//	sleep(1);
+
+	if (buf[0] == 'cd' ){
+		getcwd;
+		chdir(buf[1]);
+		getcwd;
+	}	
 	}
 
 	return 0;
 }
-
+// use chdir for
+// check string compare against arguement and if so call the function
