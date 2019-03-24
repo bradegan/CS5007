@@ -45,7 +45,7 @@ int main(int argc, char **argv){
 
 
 
-        parse(argc, **argv);
+        //parse(argc, **argv);
 	//	sleep(1);
 	}
 
