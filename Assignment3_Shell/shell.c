@@ -15,18 +15,26 @@ void sigint_handler(int sig){
 	exit(0);
 }
 
-int parse(char* buf)
+void parse(char buf[], char* tokens[])
 {
     if ((buf) != NULL){
         char* pch;
-        char* str = buf;
-        char* token = strtok (str," ,.-\t\n");
+        
+        char* token = strtok (buf," ,.-\t\n");
+	printf ("token=%s\n",token);
+	int i = 0;
+	tokens[0] = token; 
+	printf("token0=%s\n",tokens[0]);
         while (token != NULL)
         {
-            printf ("%s\n",token);
+           // printf ("token=%s\n",token);
             token = strtok(NULL, " ,.-\t\n");
+            printf ("token=%s\n",token);
+	    i++;
+            tokens[i]=token;	
+	    printf("tokens at %d is %s\n",i, tokens[i]);
         }
-        return token;}
+        }
 }
 
 int main(int argc, char **argv){
@@ -39,24 +47,29 @@ int main(int argc, char **argv){
 	while(1){
 		printf("mini-shell>");
         char buf[BUFFER_SIZE];
-
+	char* tokens[BUFFER_SIZE+10];
         fgets(buf, BUFFER_SIZE, stdin);
         printf("Buffer is: %s",buf);
 	
 
-
-
-        parse(buf);
+        parse(buf, tokens);
 	//	sleep(1);
-
-	if (buf[0] == 'cd' ){
-		getcwd;
-		chdir(buf[1]);
-		getcwd;
+	
+	if (strcmp(tokens[0], "cd")==0 ){
+	//	getcwd;
+	printf("succes\n");
+		
+		if (chdir(tokens[1])== 0){
+			printf("successfully changed directory\n");
+	//	getcwd;
 	}	
+	
 	}
+//	return 0;
 
+	}
 	return 0;
 }
+
 // use chdir for
 // check string compare against arguement and if so call the function
