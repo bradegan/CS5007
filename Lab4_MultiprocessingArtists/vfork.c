@@ -51,6 +51,21 @@ int main(int argc, char** argv){
   // Write out the PPM file
 	// You have to do this!
 	// TODO: (See task 6)
-
+// Write out the PPM file
+	// If you are looking at this solution, it could
+	// be better laid out in a 'save function'
+	FILE *fp;
+	fp = fopen("vfork.ppm","w+");
+	fputs("P3\n",fp);
+	fputs("64 64\n",fp);
+	fputs("255\n",fp);
+	for(int i =0; i < 64;i++){
+		for(int j =0; j < 64*3; j++){
+			fprintf(fp,"%d",colors[i][j]);
+			fputs(" ",fp);		
+		}
+		fputs("\n",fp);
+	}
+	fclose(fp);
         return 0;
 }
