@@ -29,7 +29,7 @@ Let us see how parallel we can get (i.e. how many artists) by analyzing our mach
   
 **Discuss with your partner:** (And write 1 sentence about your findings here)
 
-*Write your response here* 
+We confirmed there are 8 cores on the ssh machine. It printed it many times.
 
 ### Task 2 - fork() parallelism
 
