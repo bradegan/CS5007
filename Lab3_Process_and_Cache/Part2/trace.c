@@ -68,7 +68,6 @@ void singleTrace(int size, int value){
 	fclose(fp);
 }
 
-
 // Generate a more realistic data access pattern
 // This will generate addresses that may repeat over time
 void realisticTrace(int size, int range){
@@ -108,12 +107,71 @@ void realisticTrace(int size, int range){
 	fclose(fp);
 }
 
+// Repeatedly iterates over an array of numbers to generate a 
+// data access pattern.  Occasionally throws in a random value to
+// represent some work other than accessing the same array.
+// Note: if cache size is small, array size must be small to guarantee
+// cache hits.
+void iterateTrace(int size, int range, int* array, int array_size){
+	FILE* fp = fopen("cache-friendly_iterate.txt","w");
+	srand(time(NULL));
+
+	for(int i=0; i < size; i++){
+		int randomDeviation = rand()%6;
+		if (randomDeviation==0){
+			char* bin = intToBinaryString((rand()%range),BITWIDTH);
+			fprintf(fp,"%s\n",bin);
+			free(bin);
+		} else{
+			int value = array[i % array_size];
+			char* bin = intToBinaryString((value%range),BITWIDTH);
+			fprintf(fp,"%s\n",bin);
+			free(bin);
+			}
+	}
+	fclose(fp);
+}
+
+
+// Similar to iterate trace, except at random intervals, a number of random
+// values will be thrown into the cache so the array values are replaced.
+// This attempts to represent working with an array, then coming back to it
+// later.
+void replaceTrace(int size, int range, int* array, int array_size, int num_replacements){
+	FILE* fp = fopen("cache-unfriendly_replace.txt","w");
+	srand(time(NULL));
+
+	for(int i=0; i < size; i++){
+		int randomDeviation = rand()%3;
+		if (randomDeviation==0){
+			for(int j = 0; j < num_replacements && i < size; j++, i++){
+				char* bin = intToBinaryString((rand()%range),BITWIDTH);
+				fprintf(fp,"%s\n",bin);
+				free(bin);
+			}
+		} else{
+			int value = array[i % array_size];
+			char* bin = intToBinaryString((value%range),BITWIDTH);
+			fprintf(fp,"%s\n",bin);
+			free(bin);
+			}
+	}
+	fclose(fp);
+}
+
 int main(){
 
 	Trace(ADDRESSES,RANGE);
 	randomTrace(ADDRESSES,RANGE);
 	realisticTrace(ADDRESSES,RANGE);
 	singleTrace(ADDRESSES,42);
+	
+	int array[] = {48, 62, 93};
+	int array_size = 3;
+	iterateTrace(ADDRESSES, RANGE, array, array_size);
+
+	int num_replacements = 4;
+	replaceTrace(ADDRESSES, RANGE, array, array_size, num_replacements);
 
 	// Some unit tests for the binary conversions if you want
 	// to play around with larger sets.
