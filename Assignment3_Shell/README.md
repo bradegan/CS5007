@@ -106,22 +106,21 @@ At a high level, implementing mini-shell takes the following components:
 	2. (Edit the readme below with your built-in command)
 
 -----------------------------------------------------
-NAME: 
+NAME: game
 
-*edit me*
+runs guessing game
 
 SYNOPSIS: 
 
-*edit me and add in a short description of the command and its usage*
+type "game" to launch guessing game
 
 DESCRIPTION:
 
-*Write a longer description of what he command does*
+launches guessing game
 
 NOTES:
 
-*Enter two or three sentences (minimum) in how you implemented the built-in command.*
-
+copied my guessing game into my code, and call run_game() when game is typed in as a cmd
 -----------------------------------------------------
 
 ## Some helpful things to ponder
