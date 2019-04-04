@@ -1,7 +1,3 @@
-// Implement your part 1 solution here
-// gcc vfork.c -o vfork
-
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <sys/types.h>
@@ -20,52 +16,46 @@ void paint(int workID){
 	// Each artist owns one row to paint on.
 	// An artist paints along each pixel 1 at a time, painting an
 	// R,G,B value (that is why it is 64*3)
-        for(int i =0; i < 64*3; i++){
+        int i = 0;
+	for(i =0; i < 64*3; i++){
                 colors[workID][i] = workID; // Try doing something more interesting with the colors!
         }
 }
 
 int main(int argc, char** argv){
 
-        // Represents how many child processes we want.
-	// In this case--64.
+        // numberOfArtists represents the number of child processes we want - in this case, 64.
         int numberOfArtists = 64;
-        // Store the process id.
         pid_t pid;
-
-        for(int i =0; i < numberOfArtists; i++){
+	int i = 0;
+        for(i =0; i < numberOfArtists; i++){
                 pid = vfork();
-                // Work that each child does
+                // For each child process, call the paint function. 
                 if(pid==0){
                         paint(i);
                         exit(0);
                 }
-                // Question, why do I log which thread executed here?
-                // Log some information in a parent.
+                // It is useful to log information here so that we can catalog which processes have 
+		// been successfully instantiated.
                 printf("Child created: %d\n",pid);
         }
 
-        // Parent
         printf("Masterpiece(vfork.ppm) is being assembled\n");
 
-  // Write out the PPM file
-	// You have to do this!
-	// TODO: (See task 6)
-// Write out the PPM file
-	// If you are looking at this solution, it could
-	// be better laid out in a 'save function'
+	// Assemble the vfork.ppm file. 
 	FILE *fp;
 	fp = fopen("vfork.ppm","w+");
 	fputs("P3\n",fp);
 	fputs("64 64\n",fp);
 	fputs("255\n",fp);
-	for(int i =0; i < 64;i++){
-		for(int j =0; j < 64*3; j++){
+	int j = 0;
+	for(i =0; i < 64;i++){
+		for(j =0; j < 64*3; j++){
 			fprintf(fp,"%d",colors[i][j]);
 			fputs(" ",fp);		
 		}
 		fputs("\n",fp);
 	}
-	fclose(fp);
+	fclose(fp);        
         return 0;
 }

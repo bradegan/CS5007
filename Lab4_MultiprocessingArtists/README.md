@@ -29,7 +29,7 @@ Let us see how parallel we can get (i.e. how many artists) by analyzing our mach
   
 **Discuss with your partner:** (And write 1 sentence about your findings here)
 
-We confirmed there are 8 cores on the ssh machine. It printed it many times.
+We found there are 8 CPU cores available for each of the 30 machines on the server. 
 
 ### Task 2 - fork() parallelism
 
@@ -95,7 +95,7 @@ Let us modify our Task 2:
 
 **Discuss with your partner:** (And write 1 sentence about where you think we are forgetting to reclaim memory)
 
-*Write your response here*
+It looks like 32,000 bytes (or, the size of 8,000 integers) are left un-reclaimed in 1 block in main. It appears that main is actually failing to free the array of 8,000 integers at the bottom of the program before it returns 0.
 
 ### Task 4 - Synchronization with fork()
 
@@ -134,7 +134,7 @@ Let us now have our artists work on one giant masterpiece (as originally intende
 
 **Discuss with your partner:** (And write 1 sentence about the difference between fork and vfork)
 
-*Write your response here*
+Just like fork, vfork makes a child process. The difference between the two is that in vfork, the child process shares the same memory as the parent process. So, in vfork, the child suspends the parent's activities until the child calls execve() or there is an exit. 
 
 Scroll down a bit to see the answers after reading the man page.
 
@@ -343,7 +343,7 @@ Once again, Michaelangelo, Rapheal, Donatello, and Leonardo are amongst 64 great
 
 **Discuss with your partner:** (And write 1 sentence if you think you need to use locks anywhere in this solution)
 
-*Write your response here*
+Yes, you would need to use a lock when editing the global variable colors. This prevents the different threads from accessing it at the same time which could mess up either the order or the completion of the colors array.
 
 (Here is a quite reminder below of using threads for your reference.)
 
