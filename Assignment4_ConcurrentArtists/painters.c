@@ -226,7 +226,9 @@ int main(){
 	pthread_join(Leonardo_tid, NULL);		   
 
     // TODO: Add the join the 50 other artists threads here	
-    // for (...)
+     for(int i =0; i < rookieArtists; ++i){ 
+	pthread_join(rookieArtists_tid[i], NULL);
+}
 
     // Save our canvas at the end of the painting session
 	outputCanvas();
@@ -238,6 +240,6 @@ int main(){
     free(Leonardo);
 
     // TODO: Free any other memory you can think of
-
+    free(rookieArtists);
 	return 0;
 }
