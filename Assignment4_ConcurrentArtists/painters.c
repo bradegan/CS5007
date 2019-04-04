@@ -122,7 +122,14 @@ void* paint(void* args){
         // at first glance this seems okay, but convince yourself
         // we can still have data races.
         // I suggest investigating a 'trylock'
- 
+ 	if( canvas[painter->x][painter->y].r == 255 &&
+            canvas[painter->x][painter->y].g == 255 &&
+            canvas[painter->x][painter->y].b == 255){
+		canvas[painter->x][painter->y].lock = painter->r;
+                canvas[painter->x][painter->y].lock = painter->g;
+                canvas[painter->x][painter->y].lock = painter->b;
+
+
         // Try to paint
         // paint the pixel if it is white.
         if( canvas[painter->x][painter->y].r == 255 &&
@@ -150,7 +157,8 @@ int main(){
 	artist_t* Donatello  = malloc(sizeof(artist_t));
 	artist_t* Raphael = malloc(sizeof(artist_t));
 	artist_t* Leonardo = malloc(sizeof(artist_t));
-	
+
+
 	// Fill in the artist attributes
     // You will see below how this structure is used
     // as arguments passed into our thread. This is a
@@ -194,10 +202,21 @@ int main(){
 	pthread_create(&Leonardo_tid,NULL,(void*)paint,Leonardo);
 
     // TODO: Add 50 more artists 
-    // int rookieArtists = 50;
-    // pthread_t moreArtists_tid[rookieArtists];
-	// artist_t* moreArtists = malloc(..);
-    // for(int i =0; i < rookieArtists; ++i){
+    int rookieArtists = 50;
+    pthread_t moreArtists_tid[rookieArtists];
+    artist_t* moreArtists = malloc(sizeof(artist_t *50 ));
+
+    for(int i =0; i < rookieArtists; ++i){
+    //
+    
+	moreArtists[i].x = rand()%256
+	moreArtists[i].y = rand()%256
+	moreArtists[i].r = rand()%255
+	moreArtists[i].g = rand()%255
+	moreArtists[i].b = rand()%255
+		
+	}
+
 
 	// Join each with the main thread.  
 	// Do you think our ordering of launching each thread matters?
