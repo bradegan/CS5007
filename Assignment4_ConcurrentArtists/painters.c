@@ -122,22 +122,22 @@ void* paint(void* args){
         // at first glance this seems okay, but convince yourself
         // we can still have data races.
         // I suggest investigating a 'trylock'
- 	if( canvas[painter->x][painter->y].r == 255 &&
-            canvas[painter->x][painter->y].g == 255 &&
-            canvas[painter->x][painter->y].b == 255){
-		canvas[painter->x][painter->y].lock = painter->r;
-                canvas[painter->x][painter->y].lock = painter->g;
-                canvas[painter->x][painter->y].lock = painter->b;
-
-
         // Try to paint
         // paint the pixel if it is white.
         if( canvas[painter->x][painter->y].r == 255 &&
             canvas[painter->x][painter->y].g == 255 &&
-            canvas[painter->x][painter->y].b == 255){
-                canvas[painter->x][painter->y].r = painter->r;
-                canvas[painter->x][painter->y].g = painter->g;
-                canvas[painter->x][painter->y].b = painter->b;
+            canvas[painter->x][painter->y].b == 255 ||
+			canvas[painter->x][painter->y].r == painter->r &&
+                	canvas[painter->x][painter->y].g == painter->g &&
+                	canvas[painter->x][painter->y].b == painter->b){
+		// trylovk
+                if (pthread_mutex_trylock(&canvas[painter->x][painter->y].lock) == 0) {
+			canvas[painter->x][painter->y].r = painter->r;
+                	canvas[painter->x][painter->y].g = painter->g;
+                	canvas[painter->x][painter->y].b = painter->b;
+		// unlock
+			pthread_mutex_unlock(&canvas[painter->x][painter->y].lock);
+		}
         }else{
         // If we cannot paint the pixel, then we backtrack
         // to a previous pixel that we own.
@@ -204,17 +204,17 @@ int main(){
     // TODO: Add 50 more artists 
     int rookieArtists = 50;
     pthread_t moreArtists_tid[rookieArtists];
-    artist_t* moreArtists = malloc(sizeof(artist_t *50 ));
+    artist_t* moreArtists = malloc(sizeof(artist_t) *50 );
 
     for(int i =0; i < rookieArtists; ++i){
     //
     
-	moreArtists[i].x = rand()%256
-	moreArtists[i].y = rand()%256
-	moreArtists[i].r = rand()%255
-	moreArtists[i].g = rand()%255
-	moreArtists[i].b = rand()%255
-		
+	moreArtists[i].x = rand()%256;
+	moreArtists[i].y = rand()%256;
+	moreArtists[i].r = rand()%255;
+	moreArtists[i].g = rand()%255;
+	moreArtists[i].b = rand()%255;
+	pthread_create(&moreArtists_tid[i],NULL,(void*)paint,&moreArtists[i]);		
 	}
 
 
@@ -227,7 +227,7 @@ int main(){
 
     // TODO: Add the join the 50 other artists threads here	
      for(int i =0; i < rookieArtists; ++i){ 
-	pthread_join(rookieArtists_tid[i], NULL);
+	pthread_join(moreArtists_tid[i], NULL);
 }
 
     // Save our canvas at the end of the painting session
@@ -240,6 +240,6 @@ int main(){
     free(Leonardo);
 
     // TODO: Free any other memory you can think of
-    free(rookieArtists);
+    free(moreArtists);
 	return 0;
 }
