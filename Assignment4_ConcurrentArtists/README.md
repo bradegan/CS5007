@@ -1,8 +1,8 @@
 TODO Please edit the following information in your assignment
 
-- Name:
-- How many hours did it take you to complete this assignment?
-- Did you collaborate with any other students/TAs/Professors?
+- Name: Brad Egan
+- How many hours did it take you to complete this assignment? 20
+- Did you collaborate with any other students/TAs/Professors? TAs
 - Did you use any external resources? (Cite them below)
   - TAs
   - tbd
@@ -179,7 +179,12 @@ This means you need to enforce some locking mechanism.
 
 **Discuss(in a few sentences)** how starvation may occur in the above program, and how you would possibly fix it? (You may fix it in your implementation if you like--the art may become more beautiful!)
 
-*edit and add your response here*
+Starvation can occur when some painters are allowed to paint but they can block other painters.
+You can avoid it by using locks / unlocks in the correct places in my program.
+When one artist is painting they may block other artists from painting in the same XY plane.
+An artist painting on a canvas locks the canvas while painting preventing other artists from painting
+at same time. This can be fixed by a better scheduling algorithm so that each artist spends less time on the canvas or draws in a smaller XY plane.
+
 
 ## Part 4 - Catch Up
 
