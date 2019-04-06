@@ -204,14 +204,21 @@ Some tutorial series that look reasonable (you can search around for others):
 **Write a few sentences here:** describing what you got caught up on. If you were caught up on 100% of things, write a few sentences about what new things you sat down and learned for 1-2 hours.
 
 I looked a bit more into bash scripts and looked more into threading as I struggled a bit in writing bash script before.
-Specifically I looked into techniques to read write into csvs and modify data accordingly.
+Specifically I looked into techniques to read write into csvs and modify data accordingly. Want to be able to loop through csvs in bash and edit filenames, and preform functions directly on csvs via bash commands. Watching this videos helped me understand how to do that. Also watched a video on how to parse csvs.
 https://www.youtube.com/watch?v=OecFFZpIkDc
+https://www.youtube.com/watch?v=tYuZlbz-JRI
+https://www.youtube.com/watch?v=yWuMeszuUcM
+https://www.youtube.com/watch?v=q5uM4VKywbA
+
 
 Specifically I used, https://www.lynda.com/C-tutorials/Threading-C/677174-2.html to familiarize myself more with threading.
 Threading and concurrency strikes me as very important and vital for modern computer programs, so I made sure to familiarize myself more
-with threading through this course. Looked into mutex, locks, and semaphores.
+with threading through this course. Looked into mutex, locks, and semaphores. Id like to write more of my code so it can run in parallel.
+https://www.youtube.com/watch?v=nVESQQg-Oiw
+https://www.youtube.com/watch?v=nlHIuG3RQ0g
 
 Also looked more into async and await in https://www.lynda.com/C-tutorials/Async-Programming-C/
+
 
 
 
