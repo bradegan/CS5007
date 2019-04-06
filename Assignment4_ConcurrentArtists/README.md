@@ -183,8 +183,8 @@ Starvation can occur when some painters are allowed to paint but they can block 
 You can avoid it by using locks / unlocks in the correct places in my program.
 When one artist is painting they may block other artists from painting in the same XY plane.
 An artist painting on a canvas locks the canvas while painting preventing other artists from painting
-at same time. This can be fixed by a better scheduling algorithm so that each artist spends less time on the canvas or draws in a smaller XY plane.
-
+at same time. This can be fixed by a better scheduling algorithm so that each artist spends less time on the canvas or draws in a smaller XY plane. Wikipedia states, "A possible solution to starvation is to use a scheduling algorithm with priority queue that also uses the aging technique. Aging is a technique of gradually increasing the priority of processes that wait in the system for a long time"
+https://en.wikipedia.org/wiki/Starvation_(computer_science)
 
 ## Part 4 - Catch Up
 
@@ -203,7 +203,17 @@ Some tutorial series that look reasonable (you can search around for others):
 	
 **Write a few sentences here:** describing what you got caught up on. If you were caught up on 100% of things, write a few sentences about what new things you sat down and learned for 1-2 hours.
 
-(*write your sentences here, share any tutorials you found*)
+I looked a bit more into bash scripts and looked more into threading as I struggled a bit in writing bash script before.
+Specifically I looked into techniques to read write into csvs and modify data accordingly.
+https://www.youtube.com/watch?v=OecFFZpIkDc
+
+Specifically I used, https://www.lynda.com/C-tutorials/Threading-C/677174-2.html to familiarize myself more with threading.
+Threading and concurrency strikes me as very important and vital for modern computer programs, so I made sure to familiarize myself more
+with threading through this course. Looked into mutex, locks, and semaphores.
+
+Also looked more into async and await in https://www.lynda.com/C-tutorials/Async-Programming-C/
+
+
 
 ## Rubric
 
