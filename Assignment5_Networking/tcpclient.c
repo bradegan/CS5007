@@ -50,6 +50,16 @@ if( (connection_status = connect(client_socket, (struct sockaddr*)&server_addres
     printf("Connected successfully\n");
 }
 
+while (1){
+	char buffer2[MAX]; 
+	fgets(buffer2, MAX, stdin); 
+	printf("string is: %s\n", bufffer2); 
+	
+	if (strcmp("exit", buffer2)){
+		break
+	}
+	send(client_socket, buffer2, sizeof(buffer2,0));
+
 //Receive data from server
 char server_response[256];
   recv(client_socket, &server_response, sizeof(server_response), 0);
