@@ -37,23 +37,25 @@ int main(){
     
     // Integer to hold a potential client socket
     int client_socket;
-    client_socket = accept(server_socket, NULL, NULL);
-    printf("Client has joined: %d\n", client_socket);
+   // client_socket = accept(server_socket, NULL, NULL);
+   // printf("Client has joined: %d\n", client_socket);
     // send a message from the server
-    char server_message[256] = "You have reached the server";
+   // char server_message[256] = "You have reached the server";
     //
-    send(client_socket, server_message, sizeof(server_message), 0);
+   // send(client_socket, server_message, sizeof(server_message), 0);
     //
     char client_response[128];
     char cmd;
     
-    while(client_socket = accept(server_socket, NULL, NULL)){
+    while(1){
         
-//        client_socket = accept(server_socket, NULL, NULL);
+     client_socket = accept(server_socket, NULL, NULL);
         send(client_socket, "conected",128,0);
-        
+          recv(client_socket, &client_response, sizeof(client_response),0);
+
         //client loop
-        while(1){
+        while( recv(client_socket, &client_response, sizeof(client_response),0)>0){
+
 	    recv(client_socket, &client_response, sizeof(client_response),0);
             printf("> %s",client_response);
             
