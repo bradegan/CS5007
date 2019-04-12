@@ -51,12 +51,12 @@ int main(){
         
      client_socket = accept(server_socket, NULL, NULL);
         send(client_socket, "conected",128,0);
-          recv(client_socket, &client_response, sizeof(client_response),0);
+         // recv(client_socket, &client_response, sizeof(client_response),0);
 
         //client loop
         while( recv(client_socket, &client_response, sizeof(client_response),0)>0){
 
-	    recv(client_socket, &client_response, sizeof(client_response),0);
+	   // recv(client_socket, &client_response, sizeof(client_response),0);
             printf("> %s",client_response);
             
             if(strcmp("exit\n",client_response) == 0) {
