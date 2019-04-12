@@ -44,10 +44,11 @@ char server_message[256] = "You have reached the server";
 //
 send(client_socket, server_message, sizeof(server_message), 0);
 //
-//
+char client_response[128];
+char cmd;
 
 while(client_socket = accept(server_socket, NULL, NULL)){
-	send(client, "conected");
+	send(client_socket, "conected",128,0);
 	while(recv(client_socket, &client_response, sizeof(client_response),0 !=0)){
 		printf("%s",cmd);	
 		
