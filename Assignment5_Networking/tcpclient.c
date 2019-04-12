@@ -25,7 +25,7 @@ int main(){
 	fgets(buf, MAX, stdin); 
 	printf("username is: %s\n", buf); 
 
-	return 0; 
+	
 
 	// Note that the protocol matches our server here
 	// Also note I am doing some error checking for my socket.
