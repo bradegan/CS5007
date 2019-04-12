@@ -61,7 +61,7 @@ int main(){
 		fgets(buffer2, MAX, stdin); 
 		printf("string is: %s\n", buffer2); 
 
-		if (strcmp("exit", buffer2)){
+		if (strcmp("exit\n", buffer2)==0){
 			break;
 		}
 		send(client_socket, buffer2, sizeof(buffer2),0);
