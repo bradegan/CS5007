@@ -44,6 +44,16 @@ char server_message[256] = "You have reached the server";
 //
 send(client_socket, server_message, sizeof(server_message), 0);
 //
+//
+
+while(client_socket = accept(server_socket, NULL, NULL)){
+	send(client, "conected");
+	while(recv(client_socket, &client_response, sizeof(client_response),0 !=0)){
+		printf("%s",cmd);	
+		
+}
+close(client_socket);
+}
 // Close the socket
 close(server_socket);
 }
