@@ -14,9 +14,18 @@
 #include <unistd.h>
 #include <netinet/in.h>
 
+#define MAX 128
+
 int main(){
 //Create socket
 int client_socket;
+
+char buf[MAX]; 
+fgets(buf, MAX, stdin); 
+printf("string is: %s\n", buf); 
+  
+return 0; 
+
 // Note that the protocol matches our server here
 // Also note I am doing some error checking for my socket.
 // You may consider updating your server code to do the same.
