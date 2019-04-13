@@ -1,8 +1,8 @@
 TODO Please edit the following information in your assignment
 
 - Name: Brad Egan
-- How many hours did it take you to complete this assignment? 
-- Did you collaborate with any other students/TAs/Professors?
+- How many hours did it take you to complete this assignment? 25
+- Did you collaborate with any other students/TAs/Professors?  tas
 - Did you use any external resources? (Cite them below)
   - tbd
   - tbd
